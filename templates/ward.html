@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title%}WARDS{%endblock%}
+{% block details%}WARD FORM{%endblock%}
+{% block submitbutton%}ADD WARD{% endblock %}
+{% block content%}
+
+    <H4>
+    <TH>WARD DETAILS </TH>
+</H4>
+{%if wards_count > 0%}
+    <table style="width: 100%;">
+ <TR>
+            
+        <th>WARD ID</th>
+        <th>WARD NAME</th>
+        <th>CAPACITY</th>
+        <TH>AMOUNT</TH>
+        <TH>ACTION</TH>
+        </TR>
+             {%for ward in Wards %}
+
+            <TR>
+                <td>{{ward.id}}</td>
+                <td>{{ward.name}}</td>
+                <td>{{ward.capacity}}</td>
+                <td>{{ward.amount}}</td>
+                <td>
+                    <form action={% url 'delete-ward' ward.id %} method="post">
+                    {% csrf_token %}
+                    <button type="submit" value="" class='btn btn-danger'>DELETE</button>
+                </form>
+            </td>
+            </TR>
+             {%endfor%}
+        
+{%else%}
+<h1 class= 'h2 text-danger'>NO WARDS AVAILABLE</h1>
+    </table>
+{%endif%}
+{%endblock%}
+

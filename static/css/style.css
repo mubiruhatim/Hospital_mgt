@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+
+h1, h2, h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b6777;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2b6777;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #52ab98;
+}
+
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 30px;
+    background-color: #2b6777;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #52ab98;
+}
+
+
+table {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #2b6777;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 16px;
+    color: #444;
+    text-align: center;
+}
+
+
+@media (max-width: 600px) {
+    form, table {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+.nav-card img {
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .nav-card:hover img {
+            transform: scale(1.06);
+        }
+        .nav-card .card-img-overlay {
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .nav-card:hover .card-img-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+

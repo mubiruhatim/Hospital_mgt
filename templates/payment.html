@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%}PAYMENTS{%endblock%}
+{% block details%}PAYMENT FORM{%endblock%}
+{% block submitbutton%}PAY NOW{% endblock %}
+{% block content%}
+    <H4>
+    <TH>PAYMENT DETAILS </TH>
+</H4>
+{%if Payment_count > 0 %}
+         
+     <table style="width: 100%;">
+        <TR>
+        <th>PAYMENT ID</th>
+        <TH>ADMISSION ID</TH>
+        <th>AMOUNT</th>
+        <TH>DATE</TH>
+        <TH>MODE OF PAYMENT</TH>
+        <TH>RECIEVED BY </TH>
+        <TH>ACTION </TH>
+        
+        
+        </TR>
+{%for payment in Payments%}
+        <TR>
+            <td>{{payment.id}} </td>
+            <td>{{payment.admission.id}} </td>
+            <td>{{payment.amount}} </td>
+            <td>{{payment.date_of_payment}} </td>
+            <td>{{payment.mode_of_payt}} </td>
+            <td>{{payment.recieved_by}} </td>
+            <td>
+                <form action={% url 'delete-payment' payment.id %} method="post">
+                    {% csrf_token %}
+                    <button type="submit"class='btn btn-danger'>DELETE</button>
+                </form>
+                
+            </td>
+        </TR>
+          {%endfor%}
+
+          {%else%}
+<h1 class= 'h2 text-danger'>NO PAYMENTS MADE</h1>
+        
+
+
+    </table>
+
+    {%endif%}
+    {%endblock%}
+

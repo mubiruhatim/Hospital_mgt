@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title%}PATIENT{%endblock%}
+{% block details%}PATIENT FORM{%endblock%}
+{% block submitbutton%}ADD PATIENT{% endblock %}
+{% block content%}
+    <H4>
+    <TH>PATIENTS DETAILS </TH>
+</H4>
+
+{%if patients_count > 0%}
+    <table style="width: 100%;">
+        <TR>
+            
+        <th>PATIENTID</th>
+        <th>P.NAME</th>
+        <th>D.O.B</th>
+        <TH>GENDER</TH>
+        <TH>CONTACT</TH>
+        <TH>ADDRESS</TH>
+        <TH>CARETAKER</TH>
+        <TH>CARETAKER CONTACT</TH>
+        <TH>WARD</TH>
+        <TH>ACTION</TH>
+        </TR>
+        {%for patient in patients%}
+
+            <TR>
+            <TD>{{patient.id}}</TD>
+            <TD>{{patient.name}}</TD>
+            <TD>{{patient.date_of_birth }}</TD>
+            <TD>{{patient.gender }}</TD>
+            <TD>{{patient.contact }}</TD>
+            <TD>{{patient.address }}</TD>
+            <TD>{{patient.care_taker }}</TD>
+            <TD>{{patient.care_taker_contact }}</TD>
+            <TD>{{patient.ward.name }}</TD>
+            <<td>
+                <form action={% url 'delete-patient' patient.id %} method="post">
+                    {% csrf_token %}
+                    <button type="submit" value="" class='btn btn-danger'>DELETE</button>
+                </form>
+                
+            </td>
+             </TR>
+        {%endfor%}
+        
+{%else%}
+<h1 class= 'h2 text-danger'>NO PATIENTS REGISTERED</h1>
+
+</table>
+{%endif%}
+
+{%endblock%}

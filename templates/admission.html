@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title%}ADMISSION{%endblock%}
+{% block details%}ADMISSION DETAILS{%endblock%}
+{% block submitbutton%}ADMIT PATIENT{% endblock %}
+
+{% block content%}
+
+    <H4>
+    <TH>ADMISSION FORM </TH>
+</H4>
+{% if Admission_count > 0 %}
+    <table style="width: 100%;">
+ <TR>
+            
+        <th> ID</th>
+         <TH>PATIENT</TH>
+         <th>DOCTOR</th>
+        <th>ADMISSION DATE</th>
+        <th>ACTION</th>
+
+        </TR>
+
+{% for ad in Admissions %}
+<tr>
+<Td>{{ad.id}}</Td>
+<Td>{{ad.patient.name}}</Td>
+<Td>{{ad.doctor.name}}</Td>
+<Td>{{ad.date}}</Td>
+<td>
+<form action={% url 'delete-admission' ad.id %} method="post">
+{% csrf_token %}
+<button type="submit" value="" class='btn btn-danger'>DELETE</button>
+</form>
+</td>
+</tr>
+
+{% endfor %}
+    </table>
+{% else %}
+<h1 class='h1 text-danger'>NO PATIENTS ADMITTED</h1>
+{% endif %}
+
+
+
+{% endblock %}
+</html>

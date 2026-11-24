@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%}BED{%endblock%}
+{% block details%}BED DETAILS{%endblock%}
+{% block submitbutton%}ADD BED{% endblock %}
+
+{% block content%}
+    <H4>
+    <TH>BED FORM </TH>
+    {% if Bed_count > 0 %}
+    <table style="width: 100%;">
+</H4>
+    <table style="width: 100%;">
+        <TR>
+            
+        <th>ID</th>
+        <TH>WARD</TH>
+        <th>STATUS</th>
+        <th>ACTION</th>
+        
+        
+        
+        </TR>
+
+         {% for bed in Beds %}
+        <TR>
+
+            <TD>{{bed.id}}</TD>
+            <TD>{{bed.ward.name}}</TD>
+            <TD>{{bed.status}}</TD>
+            <td><form action={% url 'delete-bed' bed.id %} method="post">
+                    {% csrf_token %}
+                    <button type="submit" value="" class='btn btn-danger'>DELETE</button>
+                </form>
+            </td>
+            
+         
+            
+            
+        </TR>
+          {% endfor %}
+
+          {% else %}
+<h1 class= 'h2 text-danger'>NO BED AVAILABLE</h1>
+        
+
+
+    </table>
+
+    {% endif %}
+{% endblock %}

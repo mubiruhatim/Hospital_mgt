@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title%}doctor{%endblock%}
+{% block details%}DOCTOR`S FORM{%endblock%}
+{% block submitbutton%}ADD DOCTOR{% endblock %}
+
+{% block content%}
+
+    <h2>DOCTOR DETAILS</h2>
+    {%if Doctor_count > 0 %}
+    <table style="width: 100%;">
+        <TR>
+            
+        <th>DOCTOR ID</th>
+        <th>NAME</th>
+        <th>CONTACT</th>
+        <TH>DEPARTMENT</TH>
+        <TH>ACTION</TH>
+        
+        </TR>
+        {%for doc in Doctors%}
+        <TR>
+            <TD>{{doc.id}}</TD>
+            <TD>{{doc.name}}</TD>
+            <TD>{{doc.contact}}</TD>
+            <TD>{{doc.department}}</TD>
+            <td><form action={% url 'delete-doctor' doc.id %} method="post">
+                    {% csrf_token %}
+                    <button type="submit" value="" class='btn btn-danger'>DELETE</button>
+                </form>
+            </td>
+        </TR>
+        {%endfor%}
+
+        
+
+    </table>
+
+    {%else%}
+<h1 class= 'h2 text-danger'>NO DOCTORS REGISTERED</h1>
+    {%endif%}
+
+{% endblock %}

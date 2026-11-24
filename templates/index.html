@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+</head>
+<body class="bg-light d-flex flex-column justify-content-center min-vh-100 py-5">
+
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold text-uppercase text-primary mb-2">
+            Welcome to Hospital Management System
+        </h1>
+        <p class="lead text-muted mx-auto mb-5" style="max-width: 720px;">
+            Just know we got you covered from top to bottom. Get to manage your data from admission to discharge at the comfort of your device without disturbing or calling anyone—not even the doctor.
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/payment.jpg' %}" class="card-img" alt="Patient">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Patient Records</h6>
+                        <a href={%url 'patients_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">View All Patients</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/ward.jpg' %}" class="card-img" alt="Ward">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Hospital Wards</h6>
+                        <a href={%url 'Ward_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">Explore All Wards</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/bed.jpg' %}" class="card-img" alt="Bed">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Bed Availability</h6>
+                        <a href={% url 'Bed_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">View All Beds</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/admission.jpg' %}" class="card-img" alt="Admission">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Admissions</h6>
+                        <a href={%url 'Admission_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">Explore All Admissions</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/doctor.jpg' %}" class="card-img" alt="Doctor">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Medical Staff</h6>
+                        <a href={%url 'Doctor_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">View All Doctors</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card nav-card border-0 shadow-lg rounded-4 overflow-hidden text-white">
+                    <img src="{% static 'images/payment.jpg' %}" class="card-img" alt="Payment">
+                    <div class="card-img-overlay top-auto h-25 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center px-3 py-2">
+                        <h6 class="card-title fw-bold text-uppercase mb-0">Billing & Payments</h6>
+                        <a href={%url 'Payment_page' %} class="btn btn-primary btn-sm fw-semibold shadow-sm">View All Payments</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
